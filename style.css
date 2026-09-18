@@ -1,0 +1,80 @@
+/* Modern, responsive layout for Minimalist Browser Todo */
+
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --bg-color: #f9fafb;
+  --text-color: #111827;
+  --primary-color: #2563eb; /* blue */
+  --badge-personal-bg: #d1fae5; /* pastel green */
+  --badge-work-bg: #dbeafe;    /* pastel blue */
+  --badge-personal-text: #065f46;
+  --badge-work-text: #1e40af;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 550px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app-header h1 {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: .5rem;
+}
+
+/* Progress Bar */
+.progress-container { display: flex; flex-direction: column; gap: .3rem; }
+.progress-bg { width: 100%; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+.progress-bar { height: 100%; background: var(--primary-color); width: 0%; transition: width .3s ease; }
+.progress-text { font-size: .9rem; text-align: right; color: #6b7280; }
+
+/* Form */
+.todo-form { display: flex; gap: .5rem; }
+.todo-form input,
+.todo-form select,
+.todo-form button { padding: .5rem .75rem; border: 1px solid #d1d5db; border-radius: 4px; font-size: .95rem; }
+.todo-form input { flex: 2; }
+.todo-form select { flex: 1; }
+.todo-form button { flex: 0 0 auto; background: var(--primary-color); color: #fff; border: none; cursor: pointer; transition: background .2s; }
+.todo-form button:hover { background: #1d4ed8; }
+
+/* Todo List */
+.todo-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+.todo-list li { display: flex; align-items: center; gap: .5rem; padding: .5rem; border: 1px solid #e5e7eb; border-radius: 4px; background: #fafafa; transition: background .2s; }
+.todo-list li:hover { background: #f3f4f6; }
+.todo-list .toggle-check { width: 1rem; height: 1rem; cursor: pointer; }
+.todo-list .badge { padding: .2rem .5rem; border-radius: 3px; font-size: .75rem; font-weight: 600; text-transform: capitalize; }
+.todo-list .badge.personal { background: var(--badge-personal-bg); color: var(--badge-personal-text); }
+.todo-list .badge.work { background: var(--badge-work-bg); color: var(--badge-work-text); }
+.todo-list .todo-text { flex: 1; word-break: break-word; }
+.todo-list .btn-delete { background: transparent; border: none; color: #ef4444; cursor: pointer; font-size: 1rem; padding: .2rem; }
+.todo-list .btn-delete:hover { color: #dc2626; }
+.todo-list li.completed .todo-text { text-decoration: line-through; opacity: .5; }
+
+/* Responsive */
+@media (max-width: 420px) {
+  .todo-form { flex-direction: column; }
+  .todo-form input,
+  .todo-form select,
+  .todo-form button { width: 100%; }
+}

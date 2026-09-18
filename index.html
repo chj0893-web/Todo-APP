@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimalist Browser Todo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="todo-app">
+    <!-- Header -->
+    <header class="app-header">
+      <h1>Minimalist Browser Todo</h1>
+    </header>
+
+    <!-- Progress Bar -->
+    <section class="progress-container">
+      <div class="progress-bg">
+        <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+      </div>
+      <span id="progress-text" class="progress-text">0% (0/0)</span>
+    </section>
+
+    <!-- Todo Input Form -->
+    <form id="todo-form" class="todo-form">
+      <input type="text" id="todo-input" placeholder="할 일을 입력하세요..." required />
+      <select id="category-select">
+        <option value="personal">개인</option>
+        <option value="work">업무</option>
+      </select>
+      <button type="submit">추가</button>
+    </form>
+
+    <!-- Todo List -->
+    <ul id="todo-list" class="todo-list"></ul>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
